@@ -48,43 +48,43 @@
 використайте функцію APPEND .
   
 ```lisp 
-;;Пункт 1
+;; Пункт 1: Створення списку
 (defvar taskone-list nil)
 (setq taskone-list (list 'A (list 'B) 'C (list 'B 1) nil))
 (format t "Task 1: ~a~%" taskone-list)
 
-;;Пункт 2
+;; Пункт 2: Головний елемент списку
 (defvar head nil)
-(setq head (first taskone-list))
+(setq head (car taskone-list))
 (format t "Task 2: Head of the list: ~a~%" head)
 
-;;Пункт 3
+;; Пункт 3: Хвіст списку
 (defvar tail nil)
 (setq tail (cdr taskone-list))
 (format t "Task 3: Tail of the list: ~a~%" tail)
 
-;;Пункт 4
+;; Пункт 4: Третій елемент списку
 (defvar third-element nil)
 (setq third-element (nth 2 taskone-list))
 (format t "Task 4: Third element: ~a~%" third-element)
 
-;;Пункт 5
+;; Пункт 5: Останній елемент списку
 (defvar last-element nil)
-(setq last-element (first (last taskone-list)))
+(setq last-element (car (last taskone-list)))
 (format t "Task 5: Last element: ~a~%" last-element)
 
-;;Пункт 6
-(format t "Is first element an atom? ~a~%" (atom (first taskone-list)))
+;; Пункт 6: Перевірки ATOM та LISTP
+(format t "Is first element an atom? ~a~%" (atom (car taskone-list)))
 (format t "Is second element an atom? ~a~%" (atom (nth 1 taskone-list)))
-(format t "Is first element a list? ~a~%" (listp (first taskone-list)))
+(format t "Is first element a list? ~a~%" (listp (car taskone-list)))
 (format t "Is second element a list? ~a~%" (listp (nth 1 taskone-list)))
 
-;;Пункт 7
+;; Пункт 7: Додаткові предикати
 (format t "Is fourth element equal to '(B 1)? ~a~%" (equal (nth 3 taskone-list) '(B 1)))
 (format t "Is third element equal to 'C? ~a~%" (eq (nth 2 taskone-list) 'C))
 (format t "Is last element null? ~a~%" (null last-element))
 
-;;Пункт 8
+;; Пункт 8: Об'єднання списку з його підсписком
 (defvar sublist (nth 3 taskone-list))
 (defvar combined-list (append taskone-list sublist))
 (format t "Task 8: Combined list: ~a~%" combined-list)
@@ -108,7 +108,7 @@ Is last element null? T
 Task 8: Combined list: (A (B) C (B 1) NIL B 1)
 ```
 
-## Варіант 3
+## Варіант 1
 <p align="center">
 <img src="variant1.png">
 </p>
